@@ -44,8 +44,32 @@ class AutoselectPlugin(octoprint.plugin.EventHandlerPlugin):
 		self._logger.info("Selecting {} on {} that was just uploaded".format(filename, storage))
 		self._printer.select_file(path, sd, False)
 
+	##~~ Softwareupdate hook
+
+	def get_update_information(self):
+		return dict(
+			autoselect=dict(
+				displayName=self._plugin_name,
+				displayVersion=self._plugin_version,
+
+				# version check: github repository
+				type="github_release",
+				user="OctoPrint",
+				repo="OctoPrint-AutoSelect",
+				current=self._plugin_version,
+
+				# update method: pip
+				pip="https://github.com/OctoPrint/OctoPrint-AutoSelect/archive/{target_version}.zip"
+			)
+		)
+
 __plugin_name__ = "Autoselect Plugin"
 
 def __plugin_load__():
 	global __plugin_implementation__
 	__plugin_implementation__ = AutoselectPlugin()
+
+	global __plugin_hooks__
+	__plugin_hooks__ = {
+		"octoprint.plugin.softwareupdate.check_config": __plugin_implementation__.get_update_information
+	}
