@@ -3,6 +3,7 @@ from __future__ import absolute_import
 
 import octoprint.plugin
 import octoprint.events
+import octoprint.filemanager
 from octoprint.filemanager.destinations import FileDestinations
 
 class AutoselectPlugin(octoprint.plugin.EventHandlerPlugin):
@@ -33,6 +34,9 @@ class AutoselectPlugin(octoprint.plugin.EventHandlerPlugin):
 			return
 
 		storage, filename = self._to_storage_and_name(payload)
+		if not octoprint.filemanager.valid_file_type(filename, type="machinecode"):
+			self._logger.debug("File is not a machinecode file, not autoselecting")
+			return
 
 		if storage == FileDestinations.SDCARD:
 			path = filename
