@@ -1,3 +1,5 @@
+---
+
 # OctoPrint-Autoselect
 
 The Autoselect Plugin will automatically select newly uploaded files for
