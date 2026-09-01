@@ -11,7 +11,7 @@ date: 2015-06-27
 
 homepage: https://github.com/OctoPrint/OctoPrint-Autoselect
 source: https://github.com/OctoPrint/OctoPrint-Autoselect
-archive: https://github.com/OctoPrint/OctoPrint-Autoselect/archive/master.zip
+archive: https://github.com/OctoPrint/OctoPrint-Autoselect/archive/refs/heads/master.zip
 
 tags:
 - ux
@@ -21,9 +21,9 @@ tags:
 compatibility:
   # list of compatible versions, for example 1.2.0. If left empty no specific version requirement will be assumed
   octoprint:
-  - 1.2.0
+  - 1.3.3
 ---
 
 The Autoselect Plugin will automatically select newly uploaded files for
 printing if there is an active connection to a printer and currently no print
-job running.
+job running. The selection delay can be changed in the plugin's settings.

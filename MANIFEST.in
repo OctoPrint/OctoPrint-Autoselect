@@ -1,1 +1,3 @@
 include README.md
+recursive-include octoprint_autoselect/templates *
+recursive-include tests *.py

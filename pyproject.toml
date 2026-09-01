@@ -1,0 +1,37 @@
+[build-system]
+requires = [
+    "setuptools>=68",
+]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "OctoPrint-Autoselect"
+version = "0.4.0"
+description = "Automatically selects freshly added files for printing if no print job is currently active."
+authors = [
+    { name = "Gina Häußge / Jubaleth", email = "osd@foosel.net" },
+]
+requires-python = ">=3.7,<4"
+dependencies = []
+dynamic = [
+    "license",
+]
+
+[project.entry-points."octoprint.plugin"]
+autoselect = "octoprint_autoselect"
+
+[project.urls]
+Homepage = "https://github.com/OctoPrint/OctoPrint-Autoselect"
+
+[project.readme]
+file = "README.md"
+content-type = "text/markdown"
+
+[tool.setuptools]
+include-package-data = true
+
+[tool.setuptools.packages.find]
+include = [
+    "octoprint_autoselect",
+    "octoprint_autoselect.*",
+]

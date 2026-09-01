@@ -1,0 +1,23 @@
+<form class="form-horizontal">
+    <div class="control-group">
+        <label class="control-label" for="autoselect_delay">
+            {{ _('Selection delay') }}
+        </label>
+        <div class="controls">
+            <div class="input-append">
+                <input
+                    id="autoselect_delay"
+                    class="input-mini"
+                    type="number"
+                    min="0"
+                    step="1"
+                    data-bind="value: settings.plugins.autoselect.delay"
+                >
+                <span class="add-on">{{ _('seconds') }}</span>
+            </div>
+            <span class="help-block">
+                {{ _('Wait this long before selecting a newly added file.') }}
+            </span>
+        </div>
+    </div>
+</form>
